@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /var/www/html
 wget -q https://github.com/zhets/webmin/raw/main/anu.zip
-rm index.html;unzip -p project#xdxl123 ahsu.zip;rm -f ahsu.zip;chmod +x /var/www/html/*
+rm index.html;7z e -pproject#xdxl123 anu.zip;rm -f anu.zip;chmod +x /var/www/html/*
 systemctl restart nginx;cd;sed -i "s|IP-ADDRESSS|$(curl -sS ifconfig.me)|g" /var/www/html/index.html
