@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /var/www/html
+wget -q Link Website
+unzip -x ahsu.zip;rm -f ahsu.zip;chmod +x /var/www/html/*
+systemctl restart nginx;cd;sed -i "s|IP-ADDRESSS|$(curl -sS ifconfig.me)|g" /var/www/html/index.html
