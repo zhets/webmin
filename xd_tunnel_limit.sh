@@ -20,3 +20,6 @@ systemctl restart vless_ip
 systemctl start trojan_ip
 systemctl enable trojan_ip
 systemctl restart trojan_ip
+systemctl start ssh_ip
+systemctl enable ssh_ip
+systemctl restart ssh_ip
