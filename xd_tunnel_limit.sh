@@ -1,54 +1,22 @@
 #!/bin/bash
 REPO="https://raw.githubusercontent.com/zhets/webmin/main/"
-cd
-wget -q -O /usr/bin/limit_all_ip "${REPO}limit_all_ip"
-chmod +x /usr/bin/*
 cd /usr/bin
+wget -q -O limit_all_ip "${REPO}limit_all_ip"
+chmod +x /usr/bin/limit_all_ip
 sed -i 's/\r//' limit_all_ip
 cd
-clear
-
-# // SERVICE LIMIT IP VMESS
-cat >/etc/systemd/system/vmess_ip.service << EOF
-[Unit]
-Description=My
-ProjectAfter=network.target
-
-[Service]
-WorkingDirectory=/usr/bin
-ExecStart=limit_all_ip vmip
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-# // SERVICE LIMIT IP VLESS
-cat >/etc/systemd/system/vless_ip.service << EOF
-[Unit]
-Description=My
-ProjectAfter=network.target
-
-[Service]
-WorkingDirectory=/usr/bin
-ExecStart=limit_all_ip vlip
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-# // SERVICE LIMIT IP TROJAN
-cat >/etc/systemd/system/trojan_ip.service << EOF
-[Unit]
-Description=My
-ProjectAfter=network.target
-
-[Service]
-WorkingDirectory=/usr/bin
-ExecStart=limit_all_ip trip
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-EOF
+cd /etc/systemd/system
+wget -q -O ssh_ip.service "${REPO}ssh_ip.service"
+wget -q -O vmess_ip.service "${REPO}vmess_ip.service"
+wget -q -O vless_ip.service "${REPO}vless_ip.service"
+wget -q -O trojan_ip.service "${REPO}trojan_ip.service"
+cd
+systemctl start vmess_ip
+systemctl enable vmess_ip
+systemctl resatrt vmess_ip
+systemctl start vless_ip
+systemctl enable vless_ip
+systemctl restart vless_ip
+systemctl start trojan_ip
+systemctl enable trojan_ip
+systemctl restart trojan_ip
