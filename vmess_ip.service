@@ -1,0 +1,11 @@
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/usr/bin
+ExecStart=limit_all_ip vmip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
