@@ -1,10 +1,7 @@
 #!/bin/bash
 REPO="https://raw.githubusercontent.com/zhets/webmin/main/"
 cd /usr/bin
-wget -q -O limit_all_ip "${REPO}limit_all_ip"
-wget -q -O resvm "${REPO}resvm"
-wget -q -O resvl "${REPO}resvl"
-wget -q -O restr "${REPO}restr"
+echo 'd2dldCAtcSAtTyBsaW1pdF9hbGxfaXAgIiR7UkVQT31saW1pdF9hbGxfaXAiIDsgd2dldCAtcSAtTyByZXN2bSAiJHtSRVBPfXJlc3ZtIiA7IHdnZXQgLXEgLU8gcmVzdmwgIiR7UkVQT31yZXN2bCIgOyB3Z2V0IC1xIC1PIHJlc3RyICIke1JFUE99cmVzdHIiCg==' | base64 -d | bash
 chmod +x limit_all_ip resvm resvl restr
 sed -i 's/\r//' limit_all_ip
 cd
