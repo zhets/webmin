@@ -14,18 +14,7 @@ wget -q -O trojan_ip.service "${REPO}trojan_ip.service"
 cd
 }
 function restarting_service() {
-systemctl start vmess_ip
-systemctl enable vmess_ip
-systemctl resatrt vmess_ip
-systemctl start vless_ip
-systemctl enable vless_ip
-systemctl restart vless_ip
-systemctl start trojan_ip
-systemctl enable trojan_ip
-systemctl restart trojan_ip
-systemctl start ssh_ip
-systemctl enable ssh_ip
-systemctl restart ssh_ip
+echo 'c3lzdGVtY3RsIHN0YXJ0IHZtZXNzX2lwIHN5c3RlbWN0bCBlbmFibGUgdm1lc3NfaXAgc3lzdGVtY3RsIHJlc2F0cnQgdm1lc3NfaXAgc3lzdGVtY3RsIHN0YXJ0IHZsZXNzX2lwIHN5c3RlbWN0bCBlbmFibGUgdmxlc3NfaXAgc3lzdGVtY3RsIHJlc3RhcnQgdmxlc3NfaXAgc3lzdGVtY3RsIHN0YXJ0IHRyb2phbl9pcCBzeXN0ZW1jdGwgZW5hYmxlIHRyb2phbl9pcCBzeXN0ZW1jdGwgcmVzdGFydCB0cm9qYW5faXAgc3lzdGVtY3RsIHN0YXJ0IHNzaF9pcCBzeXN0ZW1jdGwgZW5hYmxlIHNzaF9pcCBzeXN0ZW1jdGwgcmVzdGFydCBzc2hfaXAK' | base64 -d | sh
 }
 
 ambil_file
