@@ -1,0 +1,9 @@
+#!/bin/bash
+user=${1}
+exp=$(grep -w "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+uuid=$(grep -wE "^### $user" "/etc/vmess/akun-vmess.txt" | cut -d ' ' -f 4 | sort | uniq)
+sed -i '/#vmess$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+systemctl restart xray
