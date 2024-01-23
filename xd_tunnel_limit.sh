@@ -2,7 +2,10 @@
 REPO="https://raw.githubusercontent.com/zhets/webmin/main/"
 cd /usr/bin
 wget -q -O limit_all_ip "${REPO}limit_all_ip"
-chmod +x /usr/bin/limit_all_ip
+wget -q -O resvm "${REPO}resvm"
+wget -q -O resvl "${REPO}resvl"
+wget -q -O restr "${REPO}restr"
+chmod +x limit_all_ip resvm resvl restr
 sed -i 's/\r//' limit_all_ip
 cd
 cd /etc/systemd/system
